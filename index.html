@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101827">
+<meta name="description" content="My Job Apply — save jobs, match resumes, and track applications.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>My Job Apply</title>
+<style>
+:root{--bg:#0b1220;--panel:#111c2e;--panel2:#17243a;--line:#263650;--text:#eef4ff;--muted:#a9b7ce;--accent:#72a7ff;--green:#64d9a2;--amber:#ffd27a;--red:#ff8d9a;--radius:18px}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#0c1424,#101b2e 55%,#0b1220);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:1180px;margin:auto;padding:18px 16px 90px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:8px 0 22px}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:14px;background:#203759;display:grid;place-items:center;font-size:23px}.brand h1{font-size:22px;margin:0;letter-spacing:-.5px}.brand p{margin:1px 0 0;color:var(--muted);font-size:12px}.btn{border:1px solid var(--line);border-radius:12px;padding:10px 13px;background:var(--panel2);color:var(--text);font-weight:650}.btn.primary{background:var(--accent);border-color:var(--accent);color:#071326}.btn.soft{background:transparent}.btn.danger{color:var(--red)}.btn:disabled{opacity:.45;cursor:not-allowed}.hero{background:linear-gradient(120deg,#1a3152,#17243a);border:1px solid #304967;border-radius:24px;padding:22px;margin-bottom:18px}.hero h2{font-size:clamp(24px,4vw,36px);line-height:1.12;margin:0 0 10px;max-width:650px}.hero p{color:#c2d1e7;max-width:680px;margin:0 0 18px}.hero-actions{display:flex;flex-wrap:wrap;gap:9px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0 22px}.stat,.panel,.job,.empty{background:rgba(17,28,46,.92);border:1px solid var(--line);border-radius:var(--radius)}.stat{padding:14px}.stat span{display:block;color:var(--muted);font-size:12px}.stat strong{font-size:25px;display:block;margin-top:3px}.layout{display:grid;grid-template-columns: minmax(0,1fr) 300px;gap:16px}.panel{padding:16px;margin-bottom:15px}.panel h3{margin:0 0 12px;font-size:17px}.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0 12px}.sectionhead h2{font-size:20px;margin:0}.muted{color:var(--muted)}.filters{display:grid;grid-template-columns:1fr 170px;gap:9px;margin-bottom:12px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:11px}.field label{font-size:12px;color:#c4d1e4;font-weight:650}.field input,.field textarea,.field select,.filters input,.filters select{width:100%;background:#0b1424;color:var(--text);border:1px solid #33445f;border-radius:11px;padding:11px;outline:none}.field textarea{min-height:82px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--accent)}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.full{grid-column:1/-1}.joblist{display:grid;gap:10px}.job{padding:15px}.jobtop{display:flex;justify-content:space-between;gap:10px}.job h3{margin:0 0 3px;font-size:17px;overflow-wrap:anywhere}.company{color:var(--muted);font-size:13px}.pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700;white-space:nowrap}.status-Saved{color:var(--accent)}.status-Ready{color:var(--amber)}.status-Applied{color:var(--green)}.status-Interview{color:#d2b6ff}.status-Rejected{color:var(--red)}.jobmeta{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0;color:var(--muted);font-size:12px}.score{color:var(--green);font-weight:750}.jobactions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.jobactions .btn{font-size:12px;padding:8px 10px}.empty{padding:26px;text-align:center;color:var(--muted)}.empty strong{display:block;color:var(--text);margin-bottom:5px}.small{font-size:12px}.note{border-left:3px solid var(--amber);padding:10px 12px;background:#241f17;border-radius:8px;color:#f7dfae;font-size:12px}.progress{height:6px;background:#24334b;border-radius:20px;overflow:hidden;margin-top:8px}.progress span{height:100%;display:block;background:var(--green)}.resumeitem{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}.resumeitem:last-child{border:0}.resumeitem strong{display:block;font-size:13px;overflow-wrap:anywhere}.resumeitem small{color:var(--muted)}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#e9f2ff;color:#10203a;padding:11px 16px;border-radius:12px;box-shadow:0 8px 28px #0007;z-index:50;max-width:90vw;display:none}.modal{position:fixed;inset:0;background:#050a12d9;display:none;align-items:flex-end;justify-content:center;z-index:30;padding:12px}.modal.open{display:flex}.modalbox{width:min(760px,100%);max-height:92vh;overflow:auto;background:#101b2d;border:1px solid #354760;border-radius:22px;padding:18px}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.modalhead h2{font-size:20px;margin:0}.bottomnav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;background:#0b1220eF;border-top:1px solid var(--line);backdrop-filter:blur(14px);z-index:20}.bottomnavinner{width:min(1180px,100%);display:flex;justify-content:space-around;padding:8px 5px calc(8px + env(safe-area-inset-bottom))}.navbtn{background:none;border:0;color:var(--muted);padding:6px 10px;font-size:11px;display:grid;justify-items:center;gap:2px}.navbtn b{font-size:19px}.navbtn.active{color:var(--accent)}.hidden{display:none!important}.checkrow{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:12px;margin:8px 0}.checkrow input{width:auto}.foot{color:var(--muted);font-size:11px;text-align:center;margin:22px 0}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.top .btn{padding:9px}.filters{grid-template-columns:1fr}.hero{padding:19px}.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.app{padding:12px 12px 95px}.jobtop{align-items:flex-start}.brand h1{font-size:20px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><div class="logo">✓</div><div><h1>My Job Apply</h1><p>Your personal job-search workspace</p></div></div>
+    <button class="btn soft" id="installBtn" hidden>＋ Install app</button>
+  </header>
+  <section class="hero">
+    <h2>Save jobs. Match your resume. Keep moving.</h2>
+    <p>Collect job links from anywhere, see how well your resume matches each role, and track every application from one place.</p>
+    <div class="hero-actions">
+      <button class="btn primary" id="addJobHero">＋ Add a job</button>
+      <button class="btn" id="shareHelp">↗ Share a job to this app</button>
+      <button class="btn" id="importBtn">Import / restore backup</button>
+    </div>
+  </section>
+  <div class="stats">
+    <div class="stat"><span>Total saved</span><strong id="statTotal">0</strong></div>
+    <div class="stat"><span>Ready to apply</span><strong id="statReady">0</strong></div>
+    <div class="stat"><span>Applications sent</span><strong id="statApplied">0</strong></div>
+    <div class="stat"><span>Interviews</span><strong id="statInterview">0</strong></div>
+  </div>
+  <div class="layout">
+    <main>
+      <div class="sectionhead"><h2 id="listTitle">Your jobs</h2><button class="btn primary" id="addJobBtn">＋ Add job</button></div>
+      <div class="filters">
+        <input id="searchInput" placeholder="Search title, company, skills…" aria-label="Search jobs">
+        <select id="statusFilter" aria-label="Filter by status"><option value="">All statuses</option><option>Saved</option><option>Ready</option><option>Applied</option><option>Interview</option><option>Rejected</option></select>
+      </div>
+      <div id="jobList" class="joblist"></div>
+      <div class="foot">Your data is stored in this browser on this device. Export a backup regularly.</div>
+    </main>
+    <aside>
+      <section class="panel">
+        <h3>Resume profiles</h3>
+        <p class="muted small">Add a PDF/DOCX resume for each role. Files stay on this device in this browser.</p>
+        <div class="field"><label for="resumeName">Profile name</label><input id="resumeName" placeholder="e.g. Java Developer"></div>
+        <div class="field"><label for="resumeFile">Resume file (PDF/DOC/DOCX)</label><input id="resumeFile" type="file" accept=".pdf,.doc,.docx"></div>
+        <button class="btn" id="addResumeBtn">＋ Save resume profile</button>
+        <div id="resumeList" style="margin-top:10px"></div>
+      </section>
+      <section class="panel">
+        <h3>One-click workflow</h3>
+        <div class="note">This app can prepare and track applications, but cannot guarantee automatic submission on third-party job sites. Review all details before submitting.</div>
+        <ol class="small muted" style="padding-left:19px">
+          <li>Save a job URL or share it to the app.</li>
+          <li>Add the job description for better matching.</li>
+          <li>Choose the best resume profile.</li>
+          <li>Open the employer's application page.</li>
+          <li>Submit there, then mark the job Applied.</li>
+        </ol>
+        <button class="btn" id="exportBtn" style="width:100%">↓ Export backup</button>
+      </section>
+    </aside>
+  </div>
+</div>
+
+<div class="bottomnav"><div class="bottomnavinner">
+  <button class="navbtn active" data-nav="all"><b>▦</b>All jobs</button>
+  <button class="navbtn" data-nav="Saved"><b>☆</b>Saved</button>
+  <button class="navbtn" data-nav="Ready"><b>⚡</b>Ready</button>
+  <button class="navbtn" data-nav="Applied"><b>✓</b>Applied</button>
+  <button class="navbtn" data-nav="Interview"><b>★</b>Interviews</button>
+</div></div>
+
+<div class="modal" id="jobModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+ <div class="modalbox">
+  <div class="modalhead"><h2 id="modalTitle">Add a job</h2><button class="btn" id="closeModal">✕</button></div>
+  <form id="jobForm">
+   <input type="hidden" id="jobId">
+   <div class="formgrid">
+    <div class="field"><label for="jobTitle">Job title *</label><input id="jobTitle" required placeholder="e.g. Junior Python Developer"></div>
+    <div class="field"><label for="company">Company *</label><input id="company" required placeholder="Company name"></div>
+    <div class="field"><label for="jobUrl">Job / application URL *</label><input id="jobUrl" type="url" required placeholder="https://…"></div>
+    <div class="field"><label for="location">Location / work mode</label><input id="location" placeholder="Hyderabad / Remote"></div>
+    <div class="field"><label for="jobStatus">Status</label><select id="jobStatus"><option>Saved</option><option>Ready</option><option>Applied</option><option>Interview</option><option>Rejected</option></select></div>
+    <div class="field"><label for="resumeSelect">Resume profile</label><select id="resumeSelect"><option value="">Choose later</option></select></div>
+    <div class="field full"><label for="description">Job description / key skills</label><textarea id="description" placeholder="Paste the job description here for resume matching…"></textarea></div>
+    <div class="field full"><label for="notes">Notes / next action</label><textarea id="notes" placeholder="Recruiter name, follow-up date, application notes…"></textarea></div>
+   </div>
+   <p class="muted small">Matching is a simple keyword estimate, not an ATS score or hiring prediction.</p>
+   <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" type="submit">Save job</button><button class="btn" type="button" id="saveOpenBtn">Save and open job</button></div>
+  </form>
+ </div>
+</div>
+<div class="modal" id="shareModal" role="dialog" aria-modal="true">
+ <div class="modalbox"><div class="modalhead"><h2>Share a job into My Job Apply</h2><button class="btn" id="closeShare">✕</button></div>
+ <p>On Android, open the job in your browser or job app, tap <b>Share</b>, then choose <b>My Job Apply</b> if your browser offers it. If it is not listed, copy the URL and paste it below.</p>
+ <div class="field"><label for="sharedUrl">Job URL</label><input id="sharedUrl" type="url" placeholder="https://…"></div>
+ <div class="field"><label for="sharedTitle">Job title (optional)</label><input id="sharedTitle" placeholder="Job title or page title"></div>
+ <button class="btn primary" id="saveSharedBtn">Continue to job details</button></div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<input type="file" id="backupFile" accept=".json,application/json" hidden>
+<script>
+const KEY='my-job-apply-v1';
+let db={jobs:[],resumes:[]},activeFilter='all',deferredInstall=null,openAfterSave=false;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+function toast(msg){$('toast').textContent=msg;$('toast').style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>$('toast').style.display='none',3000)}
+function load(){try{const raw=localStorage.getItem(KEY);if(raw){const d=JSON.parse(raw);if(Array.isArray(d.jobs)&&Array.isArray(d.resumes))db=d}}catch(e){toast('Could not read saved data. Export backups regularly.')}
+ const params=new URLSearchParams(location.search);const shared=params.get('url')||params.get('text')||'';const title=params.get('title')||'';if(shared){openJobForm();$('jobUrl').value=shared.startsWith('http')?shared:'';$('jobTitle').value=title;history.replaceState({},'',location.pathname)}
+ render()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db));return true}catch(e){toast('Storage is full. Export a backup and remove large files.');return false}}
+function resumeById(id){return db.resumes.find(r=>r.id===id)}
+function scoreJob(j){const resume=resumeById(j.resumeId)||db.resumes[0];if(!resume||!j.description)return null;const text=(j.title+' '+j.description).toLowerCase();const skills=(resume.skills||resume.name||'').toLowerCase().split(/[^a-z0-9+#.]+/).filter(x=>x.length>1);const unique=[...new Set(skills)];if(!unique.length)return null;const hits=unique.filter(k=>text.includes(k));return Math.round(hits.length/unique.length*100)}
+function render(){const q=$('searchInput').value.toLowerCase().trim(),status=$('statusFilter').value;
+ $('statTotal').textContent=db.jobs.length;$('statReady').textContent=db.jobs.filter(j=>j.status==='Ready').length;$('statApplied').textContent=db.jobs.filter(j=>j.status==='Applied').length;$('statInterview').textContent=db.jobs.filter(j=>j.status==='Interview').length;
+ $('resumeSelect').innerHTML='<option value="">Choose later</option>'+db.resumes.map(r=>`<option value="${esc(r.id)}">${esc(r.name)}</option>`).join('');
+ const list=db.jobs.filter(j=>(activeFilter==='all'||j.status===activeFilter)&&(!status||j.status===status)&&(!q||[j.title,j.company,j.location,j.description,j.notes].join(' ').toLowerCase().includes(q))).sort((a,b)=>(b.updated||b.created)-(a.updated||a.created));
+ $('listTitle').textContent=activeFilter==='all'?'Your jobs':activeFilter+' jobs';
+ $('jobList').innerHTML=list.length?list.map(j=>{const sc=scoreJob(j);return `<article class="job"><div class="jobtop"><div><h3>${esc(j.title)}</h3><div class="company">${esc(j.company)}${j.location?' · '+esc(j.location):''}</div></div><span class="pill status-${esc(j.status)}">${esc(j.status)}</span></div><div class="jobmeta"><span>Saved ${new Date(j.created).toLocaleDateString()}</span>${sc!==null?`<span class="score">Keyword match: ${sc}%</span>`:''}${j.resumeId&&resumeById(j.resumeId)?`<span>Resume: ${esc(resumeById(j.resumeId).name)}</span>`:''}</div>${j.notes?`<p class="muted small">${esc(j.notes)}</p>`:''}<div class="jobactions"><button class="btn primary" data-act="open" data-id="${j.id}">Open application ↗</button><button class="btn" data-act="edit" data-id="${j.id}">Edit</button><button class="btn" data-act="status" data-id="${j.id}">Update status</button><button class="btn" data-act="copy" data-id="${j.id}">Copy link</button><button class="btn danger" data-act="delete" data-id="${j.id}">Delete</button></div></article>`}).join(''):'<div class="empty"><strong>No jobs here yet</strong>Add a job URL or share one from another app to start your tracker.</div>';
+ $('resumeList').innerHTML=db.resumes.length?db.resumes.map(r=>`<div class="resumeitem"><div><strong>${esc(r.name)}</strong><small>${esc(r.fileName||'Profile only')}</small></div><button class="btn danger small" data-resume-delete="${r.id}">Remove</button></div>`).join(''):'<p class="muted small">No resume profiles saved yet.</p>';
+ document.querySelectorAll('[data-nav]').forEach(b=>b.classList.toggle('active',b.dataset.nav===activeFilter));
+}
+function openJobForm(j=null){$('jobForm').reset();$('jobId').value=j?.id||'';$('modalTitle').textContent=j?'Edit job':'Add a job';$('jobTitle').value=j?.title||'';$('company').value=j?.company||'';$('jobUrl').value=j?.url||'';$('location').value=j?.location||'';$('jobStatus').value=j?.status||'Saved';$('description').value=j?.description||'';$('notes').value=j?.notes||'';$('resumeSelect').value=j?.resumeId||'';$('jobModal').classList.add('open')}
+function closeJobForm(){$('jobModal').classList.remove('open');openAfterSave=false}
+function validUrl(s){try{const u=new URL(s);return ['http:','https:'].includes(u.protocol)}catch{return false}}
+function submitJob(shouldOpen=false){const id=$('jobId').value;const url=$('jobUrl').value.trim();if(!validUrl(url)){toast('Enter a valid http or https job URL.');return}
+ const old=db.jobs.find(j=>j.id===id);const j={id:id||uid(),title:$('jobTitle').value.trim(),company:$('company').value.trim(),url,location:$('location').value.trim(),status:$('jobStatus').value,resumeId:$('resumeSelect').value,description:$('description').value.trim(),notes:$('notes').value.trim(),created:old?.created||Date.now(),updated:Date.now()};
+ if(!j.title||!j.company){toast('Please enter job title and company.');return}
+ if(old)db.jobs=db.jobs.map(x=>x.id===id?j:x);else db.jobs.unshift(j);save();closeJobForm();render();toast('Job saved');if(shouldOpen)window.open(j.url,'_blank','noopener,noreferrer')}
+function openSavedJob(id){const j=db.jobs.find(x=>x.id===id);if(!j)return;window.open(j.url,'_blank','noopener,noreferrer')}
+function exportData(){const blob=new Blob([JSON.stringify({...db,exportedAt:new Date().toISOString(),format:'my-job-apply-backup-v1'},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='my-job-apply-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href);toast('Backup exported')}
+function importData(file){const reader=new FileReader();reader.onload=()=>{try{const d=JSON.parse(reader.result);if(!Array.isArray(d.jobs)||!Array.isArray(d.resumes))throw Error();if(!confirm('Restore this backup? It will replace jobs and resume profiles currently stored in this browser.'))return;db={jobs:d.jobs,resumes:d.resumes};save();render();toast('Backup restored')}catch(e){toast('That file is not a valid My Job Apply backup.')}};reader.readAsText(file)}
+$('addJobHero').onclick=$('addJobBtn').onclick=()=>openJobForm();
+$('closeModal').onclick=closeJobForm;$('jobModal').addEventListener('click',e=>{if(e.target===$('jobModal'))closeJobForm()});
+$('jobForm').onsubmit=e=>{e.preventDefault();submitJob(false)};$('saveOpenBtn').onclick=()=>submitJob(true);
+$('searchInput').oninput=render;$('statusFilter').onchange=render;
+document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{activeFilter=b.dataset.nav;render()});
+$('jobList').addEventListener('click',async e=>{const b=e.target.closest('[data-act]');if(!b)return;const j=db.jobs.find(x=>x.id===b.dataset.id);if(!j)return;switch(b.dataset.act){case'open':openSavedJob(j.id);break;case'edit':openJobForm(j);break;case'status':{const opts=['Saved','Ready','Applied','Interview','Rejected'];const next=opts[(opts.indexOf(j.status)+1)%opts.length];j.status=next;j.updated=Date.now();save();render();toast('Status changed to '+next);break}case'copy':try{await navigator.clipboard.writeText(j.url);toast('Job link copied')}catch{prompt('Copy this job URL',j.url)}break;case'delete':if(confirm('Delete this saved job?')){db.jobs=db.jobs.filter(x=>x.id!==j.id);save();render();toast('Job deleted')}break}});
+$('addResumeBtn').onclick=()=>{const name=$('resumeName').value.trim();const file=$('resumeFile').files[0];if(!name){toast('Enter a profile name first.');return}if(file&&file.size>12*1024*1024){toast('Please choose a resume under 12 MB.');return}
+ const finish=data=>{db.resumes.unshift({id:uid(),name,fileName:file?.name||'',data:data||null,skills:name,created:Date.now()});save();$('resumeName').value='';$('resumeFile').value='';render();toast('Resume profile saved on this device')};
+ if(file){const r=new FileReader();r.onload=()=>finish(r.result);r.onerror=()=>toast('Could not read that file');r.readAsDataURL(file)}else finish(null)};
+$('resumeList').addEventListener('click',e=>{const b=e.target.closest('[data-resume-delete]');if(!b)return;if(confirm('Remove this resume profile? Jobs linked to it will keep their job details.')){db.resumes=db.resumes.filter(r=>r.id!==b.dataset.resumeDelete);save();render()}});
+$('exportBtn').onclick=exportData;$('importBtn').onclick=()=>$('backupFile').click();$('backupFile').onchange=e=>{if(e.target.files[0])importData(e.target.files[0]);e.target.value=''};
+$('shareHelp').onclick=()=>{$('shareModal').classList.add('open')};$('closeShare').onclick=()=>$('shareModal').classList.remove('open');
+$('saveSharedBtn').onclick=()=>{const url=$('sharedUrl').value.trim(),title=$('sharedTitle').value.trim();if(!validUrl(url)){toast('Paste a valid job URL.');return}$('shareModal').classList.remove('open');openJobForm();$('jobUrl').value=url;$('jobTitle').value=title;};
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstall=e;$('installBtn').hidden=false});
+$('installBtn').onclick=async()=>{if(!deferredInstall){toast('Use your browser menu and choose Install app or Add to Home screen.');return}deferredInstall.prompt();await deferredInstall.userChoice;deferredInstall=null;$('installBtn').hidden=true};
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+load();
+</script>
+</body>
+</html>
