@@ -1,0 +1,6 @@
+const ids=['name','email','phone','city','skills'];const $=id=>document.getElementById(id);const status=t=>$('status').textContent=t;
+chrome.storage.local.get(['profile'],d=>{const p=d.profile||{};ids.forEach(k=>$(k).value=p[k]||'');});
+function profile(){return Object.fromEntries(ids.map(k=>[k,$(k).value.trim()]));}
+$('save').onclick=()=>{chrome.storage.local.set({profile:profile()},()=>status('Profile saved on this browser.'));};
+async function run(submit){const p=profile();if(!p.name&&!p.email&&!p.phone){status('Add at least your name, email, or phone first.');return;}if(submit&&!$('confirmSubmit').checked){status('Tick the authorization checkbox before submitting.');return;}chrome.storage.local.set({profile:p},async()=>{try{const [tab]=await chrome.tabs.query({active:true,currentWindow:true});if(!tab?.id){status('No active page found.');return;}const response=await chrome.tabs.sendMessage(tab.id,{type:'FILL_JOB_FORM',profile:p,submit});status(response?.message||'No response from page. If this is a restricted browser page, open a normal job application tab.');}catch(e){status('Could not access this page. Reload the job page, then reopen the extension.');}});}
+$('fill').onclick=()=>run(false);$('submit').onclick=()=>run(true);

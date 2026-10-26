@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "My Job Apply Assistant",
+  "version": "1.0.0",
+  "description": "User-triggered form assistance for job applications on the active tab.",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "action": {"default_title": "My Job Apply", "default_popup": "popup.html"},
+  "content_scripts": [{"matches": ["http://*/*", "https://*/*"], "js": ["content.js"], "run_at": "document_idle"}]
+}

@@ -1,44 +1,36 @@
-# My Job Apply
+# My Job Apply — real starter project
 
-A separate, mobile-friendly job tracker PWA for Android and desktop. Designed for free static hosting (for example, GitHub Pages).
+This is a separate project and does not touch the existing All in One app.
 
-## Included in this starter version
-- Save job title, company, job URL, location, status, description, notes and chosen resume profile.
-- Search and filter saved jobs.
-- Track Saved, Ready, Applied, Interview and Rejected statuses.
-- Save resume files/profile names in the current browser's local storage.
-- Basic keyword match estimate using job text and profile name (not a true ATS score).
-- Export and restore a JSON backup.
-- PWA manifest, service worker and app icons.
-- Web Share Target declaration for compatible Android/browser share menus.
+## What is implemented
+- Android-friendly static web app for saving job links, descriptions, status, notes, basic keyword overlap, and JSON backup/import.
+- A Manifest V3 Chrome/Edge extension that fills common fields on the active tab after you click it.
+- Submit is never triggered on page load. It can only be attempted after you explicitly choose **Fill & submit** and tick the authorization checkbox. It only clicks a clearly labelled submit button if the detected required fields are filled.
+- It reports the action it took, not that the employer received the application. Verify the confirmation on the job website.
 
-## Important current limitations
-- The app does **not** submit applications automatically to LinkedIn, Naukri, Indeed or other sites. It opens the application URL and lets you complete the site's own process.
-- The current match score is intentionally simple. It compares words from the resume profile name against the job title/description; it does not parse resume content or assess qualifications.
-- Files and records are stored locally in the browser. They do not sync between devices and can be lost if browser data is cleared. Export backups regularly.
-- Resume files are stored as data in browser localStorage, so large files may exceed browser storage limits. Keep each resume small.
-- The Share Target feature only works if the app is hosted over HTTPS, installed, and the browser supports Web Share Target. Otherwise, copy a URL and paste it in the app.
-- Static hosting cannot safely hold secrets or provide secure cross-site automation.
+## Important limitations (read before using)
+There is no universal API or form structure for all major job websites. LinkedIn, Naukri, Indeed, Workday, Greenhouse, Lever, company ATS portals and other sites change their layouts and may use dynamic forms. The extension is a generic assistive implementation, not a guarantee of compatibility with each portal.
+- It does not bypass login, CAPTCHA, MFA, paywalls, access controls, anti-bot systems, or website terms.
+- It does not invent answers to screening questions or choose demographic/legal declarations.
+- Resume upload controls are not filled automatically. Attach the resume manually when needed.
+- The extension does not inspect whether an application was actually received. Look for the portal's success confirmation and update the tracker.
+- Test on a draft/test form first. A submit click may send a real application.
+- Chrome on Android does not support normal desktop extensions. The web tracker works on Android; extension automation currently requires desktop Chrome/Edge. Some Android browsers support extensions, but this extension has not been certified for them.
+- Static hosting has no cloud sync; records live in the browser's local storage. Export backups. Do not use this version on a shared device.
 
-## Install on Android
-1. Host the contents of this folder on an HTTPS site (GitHub Pages works).
-2. Open the hosted URL in Chrome on Android.
-3. Use Chrome's menu > **Install app** or **Add to Home screen**.
-4. To share a job, open the job page, tap Share and choose My Job Apply if it appears. If it does not appear, copy the URL and paste it in the app.
+## Publish the web app for free
+1. Create a **new** GitHub repository named `my-job-apply` (do not use the existing All in One repository).
+2. Upload the contents of `web/` to the root of that new repository.
+3. In GitHub: Settings → Pages → deploy from branch `main`, folder `/ (root)`.
+4. Open the HTTPS Pages URL on Android Chrome. Use the browser menu → Add to Home screen / Install app.
 
-## Deploy to GitHub Pages
-1. Create a new GitHub repository named `my-job-apply` (or another name).
-2. Upload `index.html`, `manifest.webmanifest`, `sw.js`, `icon.svg`, `icon-192.png`, `icon-512.png`, and this README to the repository root.
-3. In repository Settings > Pages, choose deploy from branch and select `main` / root.
-4. Open the HTTPS Pages URL after deployment completes.
-5. If the app is hosted in a repository subpath, all paths in this project are relative, so it should work from that path.
+## Install the extension on a computer
+1. Unzip the project.
+2. In desktop Chrome open `chrome://extensions`; in Edge open `edge://extensions`.
+3. Enable Developer mode → Load unpacked → choose the `extension/` folder.
+4. Open a normal job application page. Reload it after installing the extension.
+5. Click the extension, enter your profile, Save profile, then choose Fill form or Fill & submit.
+6. Inspect every field before submitting. If the form is custom or the extension cannot identify a field, complete it yourself.
 
-## Safe path to stronger automation
-1. Keep this app as the job inbox and tracker.
-2. Add a browser extension for user-triggered field assistance on specific supported sites; request only the minimum permissions and keep the user in control.
-3. For any backend, use a secure API and database, never expose API keys in frontend files.
-4. Prefer official employer/ATS integrations where available. Do not bypass CAPTCHAs, login protections, rate limits, or site terms.
-5. Require review before final submission, and record a job as Applied only after the site confirms submission or the user marks it applied.
-
-## Data backup
-Use **Export backup** regularly. Restore through **Import / restore backup**. Restoring replaces the current local job/resume data.
+## Next steps for production-grade support
+Per-site integrations and tests are needed for each target portal. A hosted backend could provide secure profile sync, but it would require authentication, privacy controls, and a secure file store. Do not put passwords, session cookies, or portal credentials in this static app.
